@@ -98,4 +98,50 @@ Tablas creadas: `users`, `sessions`, `cache`, `jobs`, `password_reset_tokens`
 
 Se editó `resources/views/welcome.blade.php`:
 - Título: `Bienvenidos al Seminario Laravel`
-- Encabezado: `Este es nuestro primer proyecto con Laravel`
+- Contenido modificado: `Este es nuestro primer proyecto con Laravel`
+
+---
+
+## Clase 4 - Autenticación y UI
+
+En esta clase integramos autenticación completa e interfaz de usuario utilizando Laravel Breeze y Tailwind CSS para nuestra aplicación "Distribuidora Tecnológica".
+
+### 1. Instalación de Laravel Breeze
+
+Instalamos y publicamos el andamiaje de autenticación de Breeze:
+```bash
+composer require laravel/breeze --dev
+php artisan breeze:install blade
+npm install
+npm run build
+```
+
+### 2. Creación del Usuario Administrador
+
+Creamos el primer usuario administrador para poder acceder al sistema usando Tinker (`php artisan tinker`):
+```php
+$user = new \App\Models\User();
+$user->name = 'Administrador';
+$user->email = 'admin@distribuidora.com';
+$user->password = bcrypt('password');
+$user->save();
+```
+
+### 3. Personalización de UI (Tailwind CSS)
+
+Realizamos las siguientes modificaciones para mejorar la estética del ERP:
+- **Logo**: Se agregó el logo de "Distribuidora Tecnológica" en `public/img/logo.png`.
+- **Login y Registro**: Se rediseñaron las vistas en `resources/views/auth/login.blade.php` y `register.blade.php` con un diseño moderno, íconos y sombras atractivas.
+- **Layout Guest**: Se modificó `resources/views/layouts/guest.blade.php` para incluir un fondo degradado premium.
+- **Dashboard**: En `resources/views/dashboard.blade.php` se implementó un mensaje de bienvenida dinámico y tarjetas (KPIs) para mostrar métricas clave como: Total de productos, Clientes, Ventas del día, y Bajo stock.
+- **Layout App**: Se agregó un footer en `resources/views/layouts/app.blade.php` y en `navigation.blade.php` se personalizaron los enlaces del menú y el avatar del usuario.
+- **Landing Page**: En `resources/views/welcome.blade.php` diseñamos un "Hero section" llamativo con botones claros para Iniciar Sesión y Crear Cuenta, mostrando los beneficios del sistema.
+
+### 4. Protección de Rutas ERP
+
+Protegimos las futuras rutas del ERP usando el middleware `auth` en `routes/web.php`:
+```php
+Route::middleware('auth')->group(function () {
+    // Rutas protegidas (Productos, Categorías, Clientes, Ventas)
+});
+```
