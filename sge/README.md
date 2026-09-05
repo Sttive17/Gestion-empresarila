@@ -1,45 +1,40 @@
-# ERP para Distribuidora Tecnológica
+# Sistema de Gestión Empresarial (ERP)
 
-Este proyecto corresponde a una actividad académica del curso **"Software de Gestión Empresarial"**, con el objetivo de implementar y personalizar visualmente el sistema de autenticación de Laravel Breeze, además de desarrollar un entorno funcional CRUD para los módulos de un ERP.
+Este repositorio contiene la entrega final del proyecto para la asignatura "Software de Gestión Empresarial". El sistema consiste en una aplicación web basada en Laravel que permite administrar módulos clave de un ERP (Productos, Clientes, Ventas y Compras).
 
-## 📸 Captura de Pantalla: Landing Page
+## 1. Captura de la Landing Page
 
 ![Landing Page](docs/visual/Captura1.png)
 
-*(Nota: Las demás capturas solicitadas en la rúbrica se encuentran dentro de la carpeta `docs/visual/`)*
+*(Las capturas adicionales del sistema, incluyendo Login, Dashboard y Vistas CRUD, se encuentran disponibles en el directorio `docs/visual/`).*
 
-## 🎨 Explicación de los Cambios Visuales Realizados
+## 2. Cambios Visuales Realizados
 
-Se realizó un trabajo profundo de rediseño de interfaz de usuario enfocado en convertir el diseño estándar de Laravel Breeze en una experiencia de **software empresarial (ERP) Premium y Moderna**. 
+Se modificó la interfaz base de Laravel Breeze para lograr un aspecto más corporativo, mejorando la usabilidad y la estética general del sistema:
+- **Navegación:** Se cambió el menú superior estándar por una barra de navegación con un fondo azul corporativo (`bg-blue-800`), separando claramente las opciones de los distintos módulos (Dashboard, Productos, Clientes, Ventas, Compras).
+- **Tarjetas (Cards):** Los formularios y tablas de datos ahora están contenidos en tarjetas blancas con bordes redondeados (`rounded-xl`) y sombras sutiles (`shadow-sm`) para destacarlos del fondo gris claro.
+- **Botones de Acción:** Los botones de "Editar", "Eliminar" y "Ver Detalle" en las tablas se rediseñaron. Pasaron de ser enlaces de texto plano a botones independientes con márgenes internos, separación y colores semánticos (azul para información, rojo para peligro).
+- **Interactividad:** Se añadieron transiciones suaves y efectos al pasar el cursor (hover) en las filas de las tablas y los botones para mejorar la retroalimentación visual al usuario.
+- **Tipografía:** Se implementaron diferentes pesos de fuente y contrastes (text-slate-800 para títulos, text-gray-500 para subtítulos) para establecer una jerarquía de lectura clara.
 
-Los principales cambios incluyen:
-- **Rediseño Completo del Layout:** Transición de colores planos a un uso estratégico de degradados sutiles (azul profundo corporativo), sombras suaves (shadow-sm, shadow-lg) y tarjetas con bordes redondeados (`rounded-xl` y `rounded-2xl`).
-- **Navegación:** Sustitución del menú superior por uno estructurado con módulos lógicos (`Panel principal`, `Productos`, `Clientes`, `Ventas`, `Compras`), con un fondo azul sólido (`bg-blue-800`) para generar un contraste claro.
-- **Tipografía Legible y Jerárquica:** Aumento de tamaños de texto (`text-2xl`, `text-3xl`), uso intensivo de la propiedad `font-extrabold` para encabezados clave y `text-gray-500` para descripciones de apoyo. Todo centralizado en la legibilidad empresarial.
-- **Micro-interacciones:** Implementación de efectos *hover* (`hover:bg-blue-700`, `transition-colors`, `hover:-translate-y-1`) en botones, filas de tablas y tarjetas, para dar una sensación de interactividad y "software vivo".
-- **Responsive Design:** Todas las vistas (Welcome, Login, Registro y Dashboard) fueron testeadas exhaustivamente para colapsar lógicamente en dispositivos móviles usando las utilidades de grid y flex de Tailwind CSS.
-- **Accesibilidad y Contraste:** Textos oscuros sobre fondos blancos/grises, etiquetas de colores suaves (verde, rojo, azul pastel) para indicar estados (`Activo`, `Bajo Stock`), mejorando la toma de decisiones del usuario.
+## 3. Paleta de Colores
 
-## 🎨 Paleta de Colores Utilizada
+El esquema de colores se orientó hacia la sobriedad y profesionalismo, típicos en herramientas de gestión empresarial:
+- **Fondo General:** Gris claro (`#F3F4F6` / `bg-gray-50`)
+- **Navegación y Acentos:** Azul oscuro corporativo (`#1E40AF` / `bg-blue-800`)
+- **Acciones Principales:** Azul brillante (`#2563EB` / `bg-blue-600`)
+- **Textos Principales:** Gris muy oscuro / Pizarra (`#1E293B` / `text-slate-800` y `#111827` / `text-gray-900`)
+- **Estados Semánticos:** 
+  - Éxito/Activo: Verde claro (`#DCFCE7` / `bg-green-100`)
+  - Peligro/Eliminar: Rojo claro (`#FEE2E2` / `bg-red-100`)
 
-La identidad visual está construida sobre una base de confianza corporativa, utilizando azules profundos, contrastes limpios y colores semánticos para el ERP:
+## 4. Fuentes y Recursos Utilizados
 
-- **Color Principal (Brand):** Azul Corporativo Profundo (`#1E40AF` / `bg-blue-800`) para la navegación y acentos principales.
-- **Botones y Llamados a la Acción:** Azul Brillante (`#2563EB` / `bg-blue-600`) con *hover* más oscuro.
-- **Fondos (Backgrounds):** Gris muy claro o blanco roto (`#F3F4F6` / `bg-gray-50`) para separar visualmente las tarjetas de contenido del fondo general.
-- **Tarjetas y Formularios:** Blanco Puro (`#FFFFFF` / `bg-white`) con sombras ligeras para resaltar el contenido.
-- **Textos Principales:** Pizarra/Gris muy oscuro (`#1E293B` / `text-slate-800`).
-- **Colores Semánticos (Estados):**
-  - **Éxito / Positivo:** Verde Pastel (`#DCFCE7` / `bg-green-100`) y texto Verde Oscuro (`#166534`).
-  - **Alerta / Negativo:** Rojo Claro (`#FEE2E2` / `bg-red-100`) y texto Rojo Oscuro (`#991B1B`).
-  - **Informativo:** Azul Claro (`#DBEAFE` / `bg-blue-100`).
-
-## 🖋️ Fuentes y Recursos Utilizados
-
-- **Framework Backend:** Laravel 11.x + Laravel Breeze (Autenticación nativa).
-- **Framework Frontend/CSS:** Tailwind CSS v3.
-- **Herramienta de Compilación:** Vite.
-- **Tipografía:** Se utiliza la fuente predeterminada **Figtree** (o Inter, si se instaló), provista por Laravel, la cual garantiza una excelente legibilidad moderna en pantallas HD.
-- **Íconos y Gráficos:** Componentes propios de Laravel Blade y clases CSS para construir estructura de layout (no se dependió de librerías externas de íconos pesadas para mantener la velocidad de carga).
-- **Logotipo:** Imagen propia subida en `public/img/logo.png`.
-- **Datos (Seeders):** Uso de Model Factories nativos de Laravel para poblar la base de datos de pruebas (Faker PHP en español).
+- **Backend:** Laravel 11.
+- **Autenticación:** Laravel Breeze.
+- **Base de Datos:** SQLite.
+- **Framework CSS:** Tailwind CSS v3.
+- **Compilador de Assets:** Vite.
+- **Fuente Tipográfica:** Figtree (por defecto en Laravel), por su excelente legibilidad en interfaces web.
+- **Datos de Prueba:** Laravel Factories y Faker PHP (configurado en español) para poblar las tablas base.
+- **Recursos Gráficos:** Logo personalizado (`public/img/logo.png`) y componentes blade nativos.
